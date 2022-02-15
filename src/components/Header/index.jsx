@@ -22,19 +22,42 @@ function Header() {
   return (
     <header className="bg-slate-700">
       <div className="flex justify-between items-center">
-        <h1 className="p-4 text-slate-100 text-3xl">Code Musings</h1>
+        <h1 className="p-4 text-slate-100 text-3xl md:ml-24">Code Musings</h1>
         <button
           type="button"
-          className="p-1 m-4 text-slate-100 border-2 rounded-lg focus:bg-slate-500"
+          className="p-1 m-4 text-slate-100 border-2 rounded-lg focus:bg-slate-500 md:hidden"
           onClick={toggleMenu}
           onBlur={closeMenu}
         >
           <HiMenu />
         </button>
+        <nav className="bg-slate-700 hidden md:flex self-stretch mr-5">
+          <Link
+            to="/"
+            className="p-5 text-slate-200 hover:bg-slate-600"
+            id="homeLink"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            className="p-5 text-slate-200 hover:bg-slate-600"
+            id="aboutLink"
+          >
+            About Me
+          </Link>
+          <Link
+            to="/links"
+            className="p-5 text-slate-200 hover:bg-slate-600"
+            id="gitLink"
+          >
+            Github
+          </Link>
+        </nav>
       </div>
 
       {menuOpen ? (
-        <nav className="fixed bg-slate-700 w-screen">
+        <nav className="fixed bg-slate-700 w-screen md:hidden">
           <ul>
             <li>
               <Link

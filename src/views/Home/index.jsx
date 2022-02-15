@@ -6,7 +6,7 @@ import Feed from '../../components/Feed';
 
 function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <div className="flex justify-center flex-grow">
         <Body>

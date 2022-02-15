@@ -10,7 +10,7 @@ function Post(props) {
   return (
     <article className="p-4 bg-slate-50 border border-slate-300 rounded-xl flex flex-col gap-4">
       <a
-        href={`http://localhost:3000/posts/${hyperlink}`}
+        href={`/posts/${hyperlink}`}
         className="self-start hover:underline active:underline focus:underline"
       >
         <h3 className="font-medium text-2xl ">{title}</h3>
@@ -19,7 +19,7 @@ function Post(props) {
       <div className="flex justify-between">
         <div className="flex gap-6">
           <a
-            href={`http://localhost:3000/users/${author.name}`}
+            href={`/users/${author.name}`}
             className="font-medium text-slate-800 hover:underline active:underline focus:underline"
           >
             {author.name}
@@ -30,7 +30,7 @@ function Post(props) {
           <HiTag size={20} className="fill-slate-700" />
           {tags.map((tag) => (
             <a
-              href={`http://localhost:3000/tags/${tag.name}`}
+              href={`/tags/${tag.name}`}
               className="font-medium text-slate-800 hover:underline active:underline focus:underline"
             >
               {tag.name}
