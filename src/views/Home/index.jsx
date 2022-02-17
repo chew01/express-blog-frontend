@@ -5,6 +5,8 @@ import Body from '../../components/Body';
 import Feed from '../../components/Feed';
 
 function Home() {
+  document.title = 'Code Musings';
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

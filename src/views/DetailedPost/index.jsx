@@ -23,6 +23,7 @@ function DetailedPost() {
     const fetchPost = async () => {
       const postFromLink = await getPostFromLink(params.postLink);
       setPost(postFromLink);
+      document.title = `${postFromLink.title} - Code Musings`;
     };
 
     fetchPost();
