@@ -36,3 +36,31 @@ export const getRecentVisiblePosts = async () => {
     throw new Error('error fetching!');
   }
 };
+
+export const getPostFromLink = async (link) => {
+  try {
+    const response = await fetch(`http://localhost:3000/api/posts/${link}`);
+    const responseJSON = await response.json();
+    if (responseJSON.status !== 'success') {
+      throw new Error('failed!');
+    }
+    return responseJSON.data;
+  } catch (e) {
+    throw new Error('error fetching!');
+  }
+};
+
+export const getCommentsFromLink = async (link) => {
+  try {
+    const response = await fetch(
+      `http://localhost:3000/api/posts/${link}/comments`
+    );
+    const responseJSON = await response.json();
+    if (responseJSON.status !== 'success') {
+      throw new Error('failed!');
+    }
+    return responseJSON.data;
+  } catch (e) {
+    throw new Error('error fetching!');
+  }
+};

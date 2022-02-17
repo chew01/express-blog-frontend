@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { HiTag } from 'react-icons/hi';
 
@@ -6,9 +7,10 @@ function Post(props) {
 
   const dateObj = new Date(createdAt);
   const date = dateObj.toLocaleDateString();
+  const time = dateObj.toLocaleTimeString();
 
   return (
-    <article className="p-4 bg-slate-50 border border-slate-300 rounded-xl flex flex-col gap-4">
+    <article className="p-4 bg-slate-100 border border-slate-700 rounded-xl flex flex-col gap-4">
       <a
         href={`/posts/${hyperlink}`}
         className="self-start hover:underline active:underline focus:underline"
@@ -24,13 +26,16 @@ function Post(props) {
           >
             {author.name}
           </a>
-          <p className="text-slate-700">{date}</p>
+          <p className="text-slate-700" title={`${date} ${time}`}>
+            {date}
+          </p>
         </div>
         <div className="flex gap-2 items-center">
           <HiTag size={20} className="fill-slate-700" />
           {tags.map((tag) => (
             <a
               href={`/tags/${tag.name}`}
+              key={tag._id}
               className="font-medium text-slate-800 hover:underline active:underline focus:underline"
             >
               {tag.name}
