@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Express Blog (front-end)
+This is the front-end of my **REST API blog project** built using React and Tailwind CSS for me to try my hand at full-stack web development.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The other components of this project are a **back-end API server** at [Express Blog](https://github.com/chew01/express-blog) built using Express JS and Mongoose, as well as a **private editor page** at [Express Blog Editor](https://github.com/chew01/express-blog-editor) built using React and Tailwind CSS.
 
-## Available Scripts
+## Framework considerations
+From the start, the design of this front-end blog encompassed the following **routes**:
+- `/` - Homepage containing a feed of all published posts
+- `/posts/:postLink` - Detailed post
+- `/tags/:tagName` - Tag page containing a feed of all published posts with the tag
+- `/users/:userName` - User page containing a feed of all published posts by the user
+- `*` - When accessing an undefined route, redirect to Homepage.
 
-In the project directory, you can run:
+Therefore, **Home, DetailedPost, Tag, User** views were required.
 
-### `npm start`
+To accomodate this, a few React **components** were created:
+- **Primary**: Header, Sidebar, Body (the basic structure of the webpage)
+- **Sidebar**: Widgets (reusable component for displaying links)
+- **Body**: Feed, Post, Comment, Composer (for displaying posts and comments, as well as compose comments)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Website design considerations
+The website was built from a **Mobile First** perspective using the Tailwind V3 CSS framework.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+On small viewports (mobile), the sidebar will be hidden and the horizontal navbar would collapse to become a toggle-able dropdown menu. Whereas on bigger viewports (tablet and above), the sidebar will be displayed and the navbar will be horizontal.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This was my first time using the Tailwind CSS framework and having written most of my CSS so far without the use of libraries and frameworks, I found Tailwind utility classes to be very handy and much more flexible than Bootstrap for example.
